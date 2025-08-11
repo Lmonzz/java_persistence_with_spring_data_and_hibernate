@@ -21,11 +21,11 @@ public class SpringdatajpaApplication {
 	@Bean
 	public ApplicationRunner configurate(UserRepository userRepository) {
 		return env -> {
-			User user1 = new User("beth", LocalDate.of(2020, Month.AUGUST, 3));
-			User user2 = new User("mike", LocalDate.of(2020, Month.JANUARY, 18));
-
-			userRepository.save(user1);
-			userRepository.save(user2);
+//			User user1 = new User("beth", LocalDate.of(2020, Month.AUGUST, 3));
+//			User user2 = new User("mike", LocalDate.of(2020, Month.JANUARY, 18));
+//
+//			userRepository.save(user1);
+//			userRepository.save(user2);
 
 			userRepository.findAll().forEach(System.out::println);
 		};

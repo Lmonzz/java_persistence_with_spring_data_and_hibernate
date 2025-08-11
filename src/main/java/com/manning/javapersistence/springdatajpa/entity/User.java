@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 import java.time.LocalDate;
+import java.util.Objects;
 
 @Entity
 @Table(name = "USERS")
@@ -96,5 +97,17 @@ public class User {
                 ", level=" + level +
                 ", active=" + active +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return level == user.level && active == user.active && Objects.equals(id, user.id) && Objects.equals(username, user.username) && Objects.equals(registrationDate, user.registrationDate) && Objects.equals(email, user.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, username, registrationDate, email, level, active);
     }
 }
